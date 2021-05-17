@@ -40,7 +40,7 @@ local subtle  = c2    -- out-of-buffer elements
 
 local fg      = hsl(210, 7, 82)
 local comment = hsl(0, 0, 54)    -- comments
-local mid     = c2               -- either foreground or background
+local mid     = c2.da(30)        -- either foreground or background
 local faded   = fg.darken(45)    -- non-important text elements
 local pop     = c7
 
@@ -66,7 +66,7 @@ NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
 
 Comment      { fg=comment,  gui=it };
 Conceal      { fg=comment };
-Whitespace   { fg=mid };                   -- 'listchars'
+Whitespace   { fg=c3 };                   -- 'listchars'
 NonText      { Whitespace };               -- characters that don't exist in the text
 SpecialKey   { Whitespace };               -- Unprintable characters: text displayed differently from what it really is
 
@@ -81,12 +81,12 @@ MatchParen   { fg=pop,     bg=mid };
 LineNr       { fg=faded };
 CursorLineNr { fg=orange };
 SignColumn   { LineNr };
-VertSplit    { fg=overbg,  bg=overbg };    -- column separating vertically split windows
+VertSplit    { fg=overbg.da(15),  bg=bg.da(15) };    -- column separating vertically split windows
 Folded       { fg=comment, bg=overbg };
 FoldColumn   { LineNr };
 
 Pmenu        { bg=overbg };                -- Popup menu normal item
-PmenuSel     { bg=hsl(220, 3, 21) };                   -- selected item
+PmenuSel     { bg=mid };                   -- selected item
 PmenuSbar    { Pmenu };                    -- scrollbar
 PmenuThumb   { PmenuSel };                 -- Thumb of the scrollbar
 WildMenu     { Pmenu };                    -- current match in 'wildmenu' completion
@@ -103,7 +103,7 @@ Search       { fg=bg,      bg=yellow };    -- Last search pattern highlighting (
 IncSearch    { Search };                   -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 Substitute   { Search };                   -- |:substitute| replacement text highlighting
 
-Visual       { bg=mid };                   -- Visual mode selection
+Visual       { bg=c2 };                    -- Visual mode selection
 VisualNOS    { bg=subtle };                -- Visual mode selection when Vim is "Not Owning the Selection".
 
 ModeMsg      { fg=faded };                 -- 'showmode' message (e.g. "-- INSERT -- ")
