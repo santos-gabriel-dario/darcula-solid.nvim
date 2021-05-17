@@ -81,7 +81,7 @@ MatchParen   { fg=pop,     bg=mid };
 LineNr       { fg=faded };
 CursorLineNr { fg=orange };
 SignColumn   { LineNr };
-VertSplit    { fg=overbg.da(15),  bg=bg.da(15) };    -- column separating vertically split windows
+VertSplit    { fg=overbg,  bg=bg };    -- column separating vertically split windows
 Folded       { fg=comment, bg=overbg };
 FoldColumn   { LineNr };
 
