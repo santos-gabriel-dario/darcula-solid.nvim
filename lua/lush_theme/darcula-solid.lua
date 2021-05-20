@@ -66,7 +66,7 @@ NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
 
 Comment      { fg=comment,  gui=it };
 Conceal      { fg=comment };
-Whitespace   { fg=c3 };                   -- 'listchars'
+Whitespace   { fg=bg };                   -- 'listchars'
 NonText      { Whitespace };               -- characters that don't exist in the text
 SpecialKey   { Whitespace };               -- Unprintable characters: text displayed differently from what it really is
 
@@ -165,11 +165,11 @@ LspDiagnosticsDefaultHint            { fg=teal };
 ---- Standard highlight groups -------------------------------------------------
 -- See :help group-name
 
-Constant       { fg=purple };
+Constant       { fg=orange };
 Number         { fg=blue };
 Float          { Number };
 Boolean        { Constant };
-Character      { fg=green };
+Character      { fg=orange };
 String         { fg=green };
 
 Identifier     { fg=fg };
@@ -206,7 +206,7 @@ Bold       { gui = bf };
 Italic     { gui = it };
 Ignore     { fg=faded };           --  left blank, hidden  |hl-Ignore|
 Error      { fg=red };             --  any erroneous construct
-Todo       { fg=orange, gui=bf };  --  anything that needs extra attention
+Todo       { gui=bf };  --  anything that needs extra attention
 
 
 
@@ -220,23 +220,23 @@ TSFloat              { Float };
 TSBoolean            { Boolean };
 TSCharacter          { Character };
 TSString             { String };
-TSStringRegex        { String };
-TSStringEscape       { String };   -- escape characters within a string
+TSStringRegex        { Character };
+TSStringEscape       { Character };   -- escape characters within a string
 TSSymbol             { fg=green, gui=it };    -- For identifiers referring to symbols or atoms.
 
 TSField              { fg=purple };
 TSProperty           { TSField };
-TSParameter          { fg=hsl(184, 32, 51) };
+TSParameter          { fg=fg };
 TSParameterReference { TSParameter };
 TSVariable           { fg=fg };                 -- Any variable name that does not have another highlight
-TSVariableBuiltin    { fg=fg,      gui=it };    -- Variable names that are defined by the languages like `this` or `self`.
+TSVariableBuiltin    { Constant,      gui=it };    -- Variable names that are defined by the languages like `this` or `self`.
 
 TSFunction           { Function };
 TSFuncBuiltin        { TSFunction };
 TSFuncMacro          { TSFunction };            -- macro defined fuctions: each `macro_rules` in Rust
 TSMethod             { TSFunction };
-TSConstructor        { TSFunction };    -- For constructor: `{}` in Lua and Java constructors.
-TSKeywordFunction    { fg=green };
+TSConstructor        { fg=fg };    -- For constructor: `{}` in Lua and Java constructors.
+TSKeywordFunction    { Keyword };
 
 TSKeyword            { Keyword };
 TSConditional        { Conditional };
