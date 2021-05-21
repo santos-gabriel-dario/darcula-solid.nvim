@@ -67,8 +67,8 @@ NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
 Comment      { fg=comment,  gui=it };
 Conceal      { fg=comment };
 Whitespace   { fg=bg };                   -- 'listchars'
-NonText      { Whitespace };               -- characters that don't exist in the text
-SpecialKey   { Whitespace };               -- Unprintable characters: text displayed differently from what it really is
+NonText      { Whitespace };              -- characters that don't exist in the text
+SpecialKey   { Whitespace };              -- Unprintable characters: text displayed differently from what it really is
 
 
 Cursor       { fg=bg,      bg=fg };
