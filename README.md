@@ -20,8 +20,8 @@ use { "briones-gabriel/darcula-solid.nvim", requires = "rktjmp/lush.nvim" }
 ```
 With [Plug](https://github.com/junegunn/vim-plug)
 ```lua
-Plug "briones-gabriel/darcula-solid.nvim"
-Plug "rktjmp/lush.nvim"
+Plug 'briones-gabriel/darcula-solid.nvim'
+Plug 'rktjmp/lush.nvim'
 ```
 Or you can use your favorite plugin manager.
 
