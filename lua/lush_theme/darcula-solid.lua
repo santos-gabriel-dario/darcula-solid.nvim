@@ -40,7 +40,7 @@ local subtle  = c2    -- out-of-buffer elements
 
 local fg      = hsl(210, 7, 82)
 local comment = hsl(0, 0, 54)    -- comments
-local mid     = c2        -- either foreground or background
+local mid     = c2.lighten(10)   -- either foreground or background
 local faded   = fg.darken(45)    -- non-important text elements
 local pop     = c7
 
