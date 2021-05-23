@@ -147,10 +147,10 @@ LspDiagnosticsDefaultHint            { fg=teal };
 --LspDiagnosticsVirtualTextWarning     { };    -- "Warning" diagnostic virtual text
 --LspDiagnosticsVirtualTextInformation { };    -- "Information" diagnostic virtual text
 --LspDiagnosticsVirtualTextHint        { };    -- "Hint" diagnostic virtual text
-LspDiagnosticsUnderlineError         { fg=red, gui=un };    -- underline "Error" diagnostics
-LspDiagnosticsUnderlineWarning       { fg=yellow, gui=un };    -- underline "Warning" diagnostics
-LspDiagnosticsUnderlineInformation   { fg=fg, gui=un };    -- underline "Information" diagnostics
-LspDiagnosticsUnderlineHint          { fg=teal, gui=un };    -- underline "Hint" diagnostics
+LspDiagnosticsUnderlineError         { gui=un };    -- underline "Error" diagnostics
+LspDiagnosticsUnderlineWarning       { gui=un };    -- underline "Warning" diagnostics
+LspDiagnosticsUnderlineInformation   { gui=un };    -- underline "Information" diagnostics
+LspDiagnosticsUnderlineHint          { gui=un };    -- underline "Hint" diagnostics
 --LspDiagnosticsFloatingError          { };    -- color "Error" diagnostic messages in diagnostics float
 --LspDiagnosticsFloatingWarning        { };    -- color "Warning" diagnostic messages in diagnostics float
 --LspDiagnosticsFloatingInformation    { };    -- color "Information" diagnostic messages in diagnostics float
