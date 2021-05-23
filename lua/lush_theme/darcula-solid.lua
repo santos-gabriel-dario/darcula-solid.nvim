@@ -276,7 +276,9 @@ TSError              { fg=red };                -- syntax/parser errors.
 HelpHyperTextJump {fg=yellow};
 markdownLinkText {fg=fg};
 
--- NerdTree
-NvimTreeRootFolder { fg=hsl(205, 8, 55) };
-NvimTreeFolderName { fg=hsl(0, 0, 72) };
+-- NvimTree
+NvimTreeNormal       { bg=hsl(220, 3, 19), fg=fg };
+NvimTreeIndentMarker { fg=hsl(204, 3, 32) };
+NvimTreeRootFolder   { fg=folder };
+NvimTreeFolderIcon   { fg=folder };
 }end)
