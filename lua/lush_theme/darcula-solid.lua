@@ -254,7 +254,7 @@ TSType               { Type };
 TSTypeBuiltin        { TSType,     gui=it };
 
 TSPunctDelimiter     { Delimiter };             -- delimiters ie: `.`
-TSPunctBracket       { fg=yellow };             -- brackets and parens.
+TSPunctBracket       { fg=fg };             -- brackets and parens.
 TSPunctSpecial       { TSPunctDelimiter };      -- special punctutation that does not fall in the catagories before.
 
 TSComment            { Comment };
