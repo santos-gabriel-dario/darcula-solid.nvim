@@ -40,7 +40,7 @@ local subtle  = c2    -- out-of-buffer elements
 
 local fg      = hsl(210, 7, 82)
 local comment = hsl(0, 0, 54)    -- comments
-local mid     = c2.da(30)        -- either foreground or background
+local mid     = c2.lighten(10)   -- either foreground or background
 local faded   = fg.darken(45)    -- non-important text elements
 local pop     = c7
 
@@ -66,7 +66,7 @@ NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
 
 Comment      { fg=comment,  gui=it };
 Conceal      { fg=comment };
-Whitespace   { fg=bg };                   -- 'listchars'
+Whitespace   { fg=mid };                  -- 'listchars'
 NonText      { Whitespace };              -- characters that don't exist in the text
 SpecialKey   { Whitespace };              -- Unprintable characters: text displayed differently from what it really is
 
