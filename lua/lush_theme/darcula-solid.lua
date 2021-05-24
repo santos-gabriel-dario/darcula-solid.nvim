@@ -41,6 +41,7 @@ local subtle  = c2    -- out-of-buffer elements
 local fg      = hsl(210, 7, 82)
 local comment = hsl(0, 0, 54)    -- comments
 local mid     = c2.lighten(10)   -- either foreground or background
+local folder  = hsl(202, 9, 57)
 local faded   = fg.darken(45)    -- non-important text elements
 local pop     = c7
 
@@ -65,8 +66,8 @@ NormalFloat  { fg=fg,      bg=overbg };
 NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
 
 Comment      { fg=comment,  gui=it };
-Conceal      { fg=comment };
 Whitespace   { fg=mid };                  -- 'listchars'
+Conceal      { fg=hsl(0, 0, 25) };
 NonText      { Whitespace };              -- characters that don't exist in the text
 SpecialKey   { Whitespace };              -- Unprintable characters: text displayed differently from what it really is
 
@@ -254,7 +255,7 @@ TSType               { Type };
 TSTypeBuiltin        { TSType,     gui=it };
 
 TSPunctDelimiter     { Delimiter };             -- delimiters ie: `.`
-TSPunctBracket       { fg=yellow };             -- brackets and parens.
+TSPunctBracket       { fg=fg };             -- brackets and parens.
 TSPunctSpecial       { TSPunctDelimiter };      -- special punctutation that does not fall in the catagories before.
 
 TSComment            { Comment };
@@ -276,7 +277,9 @@ TSError              { fg=red };                -- syntax/parser errors.
 HelpHyperTextJump {fg=yellow};
 markdownLinkText {fg=fg};
 
--- NerdTree
-NvimTreeRootFolder { fg=hsl(205, 8, 55) };
-NvimTreeFolderName { fg=hsl(0, 0, 72) };
+-- NvimTree
+NvimTreeNormal       { bg=hsl(220, 3, 19), fg=fg };
+NvimTreeIndentMarker { fg=hsl(204, 3, 32) };
+NvimTreeRootFolder   { fg=folder };
+NvimTreeFolderIcon   { fg=folder };
 }end)
