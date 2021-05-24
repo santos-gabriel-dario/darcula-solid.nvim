@@ -189,7 +189,7 @@ Define         { PreProc };    -- preprocessor #define
 Macro          { PreProc };    -- same as Define
 PreCondit      { PreProc };    -- preprocessor #if, #else, #endif, etc.
 
-Type           { fg=purple };
+Type           { fg=fg };
 StorageClass   { fg=magenta };    -- static, register, volatile, etc.
 Structure      { fg=magenta };    -- struct, union, enum, etc.
 Typedef        { Type };
