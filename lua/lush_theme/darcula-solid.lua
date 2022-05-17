@@ -283,4 +283,24 @@ NvimTreeNormal       { bg=treebg, fg=fg };
 NvimTreeIndentMarker { fg=hsl(204, 3, 32) };
 NvimTreeRootFolder   { fg=folder };
 NvimTreeFolderIcon   { fg=folder };
+
+-- Diffview
+DiffViewNormal   { bg=treebg, fg=fg };
+DiffviewStatusAdded  {  fg=green };
+DiffviewStatusModified  { fg=orange };
+DiffviewStatusRenamed   { fg=orange };
+DiffviewStatusDeleted   { fg=red };
+DiffviewFilePanelInsertion  { fg=green };
+DiffviewFilePanelDeletion   {  fg=red };
+DiffviewVertSplit   { bg=treebg};
+
+--GIT
+SignAdd {fg=green};
+SignChange {fg=orange};
+SignDelete {fg=red};
+GitSignsAdd {fg=green};
+GitSignsChange {fg=orange};
+GitSignsDelete {fg=red};
+
+
 }end)
