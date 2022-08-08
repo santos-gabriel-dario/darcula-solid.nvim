@@ -135,9 +135,9 @@ SpellRare    { fg=yellow,  gui=un };
 
 ---- Language Server Protocol highlight groups ---------------------------------
 
--- LspReferenceText                  { };    -- highlighting "text" references
--- LspReferenceRead                  { };    -- highlighting "read" references
--- LspReferenceWrite                 { };    -- highlighting "write" references
+LspReferenceText                  { bg=mid };    -- highlighting "text" references
+LspReferenceRead                  { bg=mid };    -- highlighting "read" references
+LspReferenceWrite                 { bg=mid };    -- highlighting "write" references
 
 -- base highlight groups. Other LspDiagnostic highlights link to these by default (except Underline)
 LspDiagnosticsDefaultError           { fg=red };
