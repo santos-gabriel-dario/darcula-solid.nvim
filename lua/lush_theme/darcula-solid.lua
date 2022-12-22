@@ -61,7 +61,9 @@ local purple  = hsl(279, 30, 62)
 local magenta = hsl(310,  40, 70)
 
 
-return lush(function() return {
+return lush(function(injected_functions) 
+local sym = injected_functions.sym
+return {
 Normal       { fg=fg,      bg=bg };
 NormalFloat  { fg=fg,      bg=overbg };
 NormalNC     { fg=fg,      bg=bg.da(10) }; -- normal text in non-current windows
@@ -214,64 +216,64 @@ Todo       { gui=bf };  --  anything that needs extra attention
 
 ---- TREESITTER ----------------------------------------------------------------
 
-TSConstant           { Constant };
-TSConstBuiltin       { Constant,   gui=it };    -- constant that are built in the language: `nil` in Lua.
-TSConstMacro         { Constant,   gui=bf };    -- constants that are defined by macros: `NULL` in C.
-TSNumber             { Number };
-TSFloat              { Float };
-TSBoolean            { Boolean };
-TSCharacter          { Character };
-TSString             { String };
-TSStringRegex        { Character };
-TSStringEscape       { Character };   -- escape characters within a string
-TSSymbol             { fg=green, gui=it };    -- For identifiers referring to symbols or atoms.
+sym "@constant"                 { Constant };
+sym "@constant.builtin"         { Constant,   gui=it };    -- constant that are built in the language: `nil` in Lua.
+sym "@constant.macro"           { Constant,   gui=bf };    -- constants that are defined by macros: `NULL` in C.
+sym "@number"                   { Number };
+sym "@float"                    { Float };
+sym "@boolean"                  { Boolean };
+sym "@character"                { Character };
+sym "@string"                   { String };
+sym "@string.regex"             { Character };
+sym "@string.escape"            { Character };             -- escape characters within a string
+sym "@symbol"                   { fg=green, gui=it };      -- For identifiers referring to symbols or atoms.
 
-TSField              { fg=purple };
-TSProperty           { TSField };
-TSParameter          { fg=fg };
-TSParameterReference { TSParameter };
-TSVariable           { fg=fg };                 -- Any variable name that does not have another highlight
-TSVariableBuiltin    { Constant,      gui=it };    -- Variable names that are defined by the languages like `this` or `self`.
+sym "@field"                    { fg=purple };
+sym "@property"                 { fg=purple };
+sym "@parameter"                { fg=fg };
+sym "@parameter.reference"      { fg=fg };
+sym "@variable"                 { fg=fg };                 -- Any variable name that does not have another highlight
+sym "@variable.builtin"         { Constant,      gui=it }; -- Variable names that are defined by the languages like `this` or `self`.
 
-TSFunction           { Function };
-TSFuncBuiltin        { TSFunction };
-TSFuncMacro          { TSFunction };            -- macro defined fuctions: each `macro_rules` in Rust
-TSMethod             { TSFunction };
-TSConstructor        { fg=fg };    -- For constructor: `{}` in Lua and Java constructors.
-TSKeywordFunction    { Keyword };
+sym "@function"                 { Function };
+sym "@function.builtin"         { Function };
+sym "@function.macro"           { Function };              -- macro defined fuctions: each `macro_rules` in Rust
+sym "@method"                   { Function };
+sym "@constructor"              { fg=fg };                 -- For constructor: `{}` in Lua and Java constructors.
+sym "@keyword.function"         { Keyword };
 
-TSKeyword            { Keyword };
-TSConditional        { Conditional };
-TSRepeat             { Repeat };
-TSLabel              { Label };
-TSOperator           { Operator };
-TSException          { Exception };
+sym "@keyword"                  { Keyword };
+sym "@conditional"              { Conditional };
+sym "@repeat"                   { Repeat };
+sym "@label"                    { Label };
+sym "@operator"                 { Operator };
+sym "@exception"                { Exception };
 
-TSNamespace          { PreProc };               -- identifiers referring to modules and namespaces.
-TSAnnotation         { TSNamespace };           -- C++/Dart attributes annotations that can be attached to the code to denote some kind of meta information
---TSAttribute          { };                     -- Unstable
-TSInclude            { TSNamespace };           -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
+sym "@namespace"                { PreProc };               -- identifiers referring to modules and namespaces.
+sym "@annotation"               { PreProc };               -- C++/Dart attributes annotations that can be attached to the code to denote some kind of meta information
+sym "@attribute"                { PreProc };               -- Unstable
+sym "@include"                  { PreProc };               -- includes: `#include` in C `use` or `extern crate` in Rust or `require` in Lua.
 
-TSType               { Type };
-TSTypeBuiltin        { TSType,     gui=it };
+sym "@type"                     { Type };
+sym "@type.builtin"             { Type,     gui=it };
 
-TSPunctDelimiter     { Delimiter };             -- delimiters ie: `.`
-TSPunctBracket       { fg=fg };             -- brackets and parens.
-TSPunctSpecial       { TSPunctDelimiter };      -- special punctutation that does not fall in the catagories before.
+sym "@punctuation.delimiter"    { Delimiter };             -- delimiters ie: `.`
+sym "@punctuation.bracket"      { fg=fg };                 -- brackets and parens.
+sym "@punctuation.special"      { Delimiter };             -- special punctutation that does not fall in the catagories before.
 
-TSComment            { Comment };
-TSTag                { Tag };                   -- Tags like html tag names.
-TSTagDelimiter       { Special };               -- Tag delimiter like < > /
-TSText               { fg=fg };
-TSEmphasis           { TSText,     gui=it };
-TSUnderline          { TSText,     gui=un };
-TSStrike             { Comment,    gui=un };
-TSStrong             { TSText,     gui=bf };
-TSTitle              { fg=orange };             -- Text that is part of a title
-TSLiteral            { TSString };              -- Literal text
-TSURI                { TSSymbol };              -- Any URI like a link or email
+sym "@comment"                  { Comment };
+sym "@tag"                      { Tag };                   -- Tags like html tag names.
+sym "@tag.delimiter"            { Special };               -- Tag delimiter like < > /
+sym "@text"                     { fg=fg };
+sym "@text.emphasis"            { fg=fg,     gui=it };
+sym "@text.underline"           { fg=fg,     gui=un };
+sym "@text.strike"              { Comment,   gui=un };
+sym "@text.strong"              { fg=fg,     gui=bf };
+sym "@text.title"               { fg=orange };             -- Text that is part of a title
+sym "@text.literal"             { String };                -- Literal text
+sym "@text.uri"                 { fg=green, gui=it };      -- Any URI like a link or email
 
-TSError              { fg=red };                -- syntax/parser errors.
+sym "@error"                    { fg=red };                -- syntax/parser errors.
 
 
 -- Other stuff
