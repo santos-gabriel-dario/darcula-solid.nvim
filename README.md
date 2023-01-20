@@ -39,5 +39,35 @@ vim.cmd 'set termguicolors'
 ```
 And because the plugin is build with [Lush](https://github.com/rktjmp/lush.nvim), you can freely copy and edit the color-scheme to fit your needs.
 
+## How to customize
+1. Create a `colors` directory if it doesn't exist at `~/.config/nvim/colors`.
+2. Create a file for the modified theme: e.g `~/.config/nvim/colors/darcula-solid-custom`.
+3. Set your modifications:
+```lua
+vim.opt.background = 'dark'
+vim.g.colors_name = 'darcula-solid-custom'
+
+local lush = require('lush')
+local darcula_solid = require('lush_theme.darcula-solid')
+local spec = lush.extends({darcula_solid}).with(function()
+  -- Your modifications go here...
+  -- Pallete copied from https://github.com/briones-gabriel/darcula-solid.nvim/blob/main/lua/lush_theme/darcula-solid.lua
+  local yellow  = lush.hsl(37, 100, 71)
+
+  return {
+    Type { fg = yellow },
+    Function { fg = darcula_solid.Normal.fg },
+  }
+end)
+
+lush(spec)
+```
+4. In your config file (e.g. ~/.config/nvim/init.lua) set the theme to your custom one as follows:
+```lua
+vim.cmd("colorscheme darcula-solid-custom")
+```
+
+A big thanks to [@rorystephenson](https://github.com/rorystephenson) for suggesting this amazing idea! ♥️
+
 ## Preview
 ![darcula-solid](https://raw.githubusercontent.com/briones-gabriel/darcula-solid.nvim/main/resources/darcula-solid-example.png)
